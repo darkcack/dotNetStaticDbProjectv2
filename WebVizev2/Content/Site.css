@@ -1,0 +1,87 @@
+﻿body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.dropdown > .dropdown-menu {
+    top: 200%;
+    transition: 0.3s all ease-in-out;
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+    top: 100%;
+}
+
+.dropdown-item:hover {
+    background-color: #99999D;
+    color: white;
+}
+
+#dropdowndeneme > option:hover {
+    background-color: #99999D;
+    color: white;
+}
+
+.dropdown-item > a:hover {
+    color: white;
+    text-decoration:
+}
+
+.dropdown-item > a {
+    background-color: white;
+}
+
+.dropdown > .dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+body {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    height: 100%;
+    color: white;
+    background-attachment: fixed;
+}
+
+.navbar {
+    background-color: #99999D;
+}
+
+.backgorund {
+    background-image: url("img1.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position-y: bottom;
+}
+
+footer {
+    background-color: #99999D;
+}
+
+.denem:hover {
+    background-color: black;
+}
+        

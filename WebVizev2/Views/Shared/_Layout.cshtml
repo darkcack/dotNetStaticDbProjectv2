@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render()
+
+   <link rel="stylesheet" href="~/Content/footer.css" />
+
+</head>
+<body class=" backgorund">
+
+    @Html.Partial("Navbar")
+    <div style="padding-bottom:15vh"></div>
+    <div class="container body-content">
+        @RenderBody()
+
+
+    </div>
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>Hakkımda</h6>
+                    <p class="text-justify">171001037 <p>Mert Aktaş Web Programlama Vize Ödevi 2020 &copy;</p>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Site Haritası</h6>
+                    <ul class="footer-links">
+                        <li><a href="@Url.Action("Index", "Novel")">Ana Sayfa</a></li>
+                        <li><a href="@Url.Action("NovelEkle", "Novel")">Novel Ekle</a></li>
+                        <li><a href="@Url.Action("KategoriEkle", "Kategori")">Kategori Ekle</a></li>
+                        <li><a href="@Url.Action("KategoriIndex", "Kategori")">Tüm Kategoriler</a></li>
+                       
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">
+                        Copyright &copy; 2017 Tüm Hakları Saklıdır
+                        <a href="#">Scanfcode</a>.
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!--  <footer id="sticky-footer" class="py-1 bg-dark text-white fixed-bottom" style="opacity:0.68;">
+          <div class="container text-center">
+              <small class="text-white" style="font-size:15px">
+                  Mert Aktaş Web Programlama Vize Ödevi 131001060&copy;
+              </small>
+          </div>
+      </footer>
+      -->
+
+
+
+
+    @Scripts.Render("~/bundles/jquerymin")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+
+
+</body>
+
+</html>

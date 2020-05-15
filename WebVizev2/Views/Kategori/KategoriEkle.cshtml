@@ -1,0 +1,36 @@
+﻿@model WebVizev2.Models.Category
+
+@{
+    ViewBag.Title = "KategoriEkle";
+}
+
+    <h2>@ViewBag.Title</h2>
+<div style="padding-bottom:3vh" ></div>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal bg-dark col-md-4">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control",@required = "required" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10 " style="padding-left:20vh">
+            <input type="submit" value="Create" class="btn btn-light" />
+        </div>
+    </div>
+    <div style="padding-bottom:1vh"></div>
+
+</div>
+<div style="padding-bottom:27vh"></div>
+}
+

@@ -1,0 +1,76 @@
+﻿@model  WebVizev2.Models.Novel
+
+@using (Html.BeginForm("YorumEkle", "Novel", FormMethod.Post))
+{
+    <div class="card flex-md-row mb-4 shadow-sm h-md-250 bg-dark text-white">
+        <div class="card-body d-flex flex-column align-items-start">
+            <h6 class="mb-2">
+                <strong >Yorum Ekle</strong>
+            </h6>
+            <table class="table">
+                <tr class="row">
+                    @Html.Hidden("Comment.Novelid", Model.id)
+                    <th class="col-2">
+                        <label class="text-white">İsminiz:</label>
+                    </th>
+                    <th class="col-3">
+                        @Html.TextBox("Comment.Yorumİsmi", null, new { @class = "form-control",@required = "required" })
+                    </th>
+                    <th class="col-2">
+                        <label class="text-white">Yorumunuz:</label>
+                    </th>
+                    <th class="col-5">
+                        @Html.TextBox("Comment.yorum", null, new { @class = "form-control" ,@required = "required"})
+
+                    </th>
+                    
+                    <td>
+                        <div>
+                            <span style="float:right;display:block">
+                                <input type="submit" value="Yorum Ekle" class="btn btn-light bg-light" />
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+}
+
+
+
+
+
+<div>
+    <hr />
+
+
+    @foreach (var item in Model.Comment)
+    {<div class="post-entry">
+    <div class="card text-white bg-dark">
+        <div class="card-body">
+            <h5 class="card-title" style="text-decoration:underline">@item.Yorumİsmi</h5>
+            <div class="float-sm-right">
+                <hr class="bg-info " style="min-height:1px;max-height:1px;" />
+            </div>
+
+            <p class="card-text">@item.yorum</p>
+
+        </div>
+        <div>
+            <span style="float:right;padding-right:1vh">
+                @Html.ActionLink("Yorumu Sil", "YorumSil", "Novel", new { id = item.id }, new { @class = "btn btn-danger" })
+            </span>
+        </div>
+        <div style="padding-bottom:2vh"></div>
+
+    </div>
+    <div style="padding-bottom:2vh"></div>
+</div>
+    }
+    <div style="padding-bottom:22vh"></div>
+
+</div>
+

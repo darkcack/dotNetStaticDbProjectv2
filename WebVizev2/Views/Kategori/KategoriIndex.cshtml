@@ -1,0 +1,38 @@
+﻿@using WebVizev2.Models
+@model List<WebVizev2.Models.Category>
+@{
+    ViewBag.Title = "Tüm Kategoriler";
+    string x = "";
+}
+
+<h2>@ViewBag.Title</h2>
+<div style="padding-bottom:3vh"></div>
+@foreach (var item in Model)
+{
+<table class="table table-striped text-white">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#KategoriId</th>
+                <th scope="col">Kategori İsmi</th>
+                <th scope="col">Novel Sayısı</th>
+                <th scope="col" style="text-align:right"></th>
+
+            </tr>
+        </thead>
+    @{ 
+        x = "Tüm "+ item.Name.ToString() + " Novelları";
+    }
+      <tbody class="table-dark" >
+        <th scope="row">@item.id</th>
+        <td>@item.Name</td>
+        <td>@item.novels.Count.ToString()</td>
+        <td style="float: right;">
+            @Html.ActionLink(x, "KategoriDetay", "Kategori", new { id = item.id }, new { @class = "btn btn-outline-light" })
+        </td>
+
+      </tbody>
+
+</table>
+
+}
+<div style="padding-bottom:5vh"></div>

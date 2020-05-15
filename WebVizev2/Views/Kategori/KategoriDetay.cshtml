@@ -1,0 +1,49 @@
+﻿@model  List<WebVizev2.Models.Novel>
+@using WebVizev2.Models;
+@{
+    ViewBag.Title = "KategoriDetay";
+    int a = 0;
+    var CategoryList = ViewBag.CategoryList as List<Category>;
+}
+
+   
+                <h2>@ViewBag.katid Serileri</h2>
+            
+
+
+        
+
+<div style="padding-bottom:3vh"></div>
+
+<table class="table table-striped text-white">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#Id</th>
+            <th scope="col">Novel İsmi</th>
+            <th scope="col">Yılı</th>
+            <th scope="col">Yazarı</th>
+            <th scope="col">Çevirmeni</th>
+            <th scope="col"></th>
+
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody class="table-dark">
+        <th scope="row">@item.id</th>
+        <td>@item.Name</td>
+        <td>@item.Year</td>
+        <td>@item.Headliner</td>
+        <td>@item.translator</td>
+        <td style="float: right;">
+            @Html.ActionLink("Detay", "DetayNovel", "Novel", new { id = item.id }, new { @class = "btn btn-outline-success" })
+            @Html.ActionLink("Sil", "NovelSil", "Novel", new { id = item.id }, new { @class = "btn btn-outline-danger" })
+            @Html.ActionLink("Güncelle", "NovelGuncelle", "Novel", new { id = item.id, category = item.category }, new { @class = "btn btn-outline-info" })
+
+        </td>
+        </tbody>
+
+    }
+</table>
+
+<div style="padding-bottom:32vh"></div>

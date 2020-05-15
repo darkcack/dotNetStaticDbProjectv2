@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WebVizev2.Models.Novel>
+
+@{
+    ViewBag.Title = "Novel Serileri";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<div class="row text-dark">
+
+    @foreach (var item in Model) // Her Novel için Döndürülen card kısmı 
+    {
+
+
+        <!--COL-3-->
+        <div class="col-4">
+
+            <div style="padding-bottom:2vh"></div>
+
+            <!--CARD-->
+            <div class="card ">
+
+                <!--CARD-BODY-->
+                <div class="card-body bg-dark text-white">
+
+                    <h4 class="card-title justify-content-between " style="min-height:14vh;text-align:center">@item.Name  </h4>
+                    <h6 class="card-subtitle" style="min-height:3vh;text-align:right">id=@item.id</h6>
+                    <hr class="bg-white" style="min-height:1px;max-height:1px;" />
+
+                    <p class="card-text justify-content-between" style="min-height:16vh;text-align:center;">@item.Description</p>
+                    <h6 style="text-align:center">@item.Year</h6>
+                    <br />
+
+                    <div class="float-sm-right">
+                        <hr class="bg-white" style="min-height:1px;max-height:1px;" />
+                        @Html.ActionLink("Detay", "DetayNovel", "Novel", new { id = item.id }, new { @class = "btn btn-outline-success" })
+                        @Html.ActionLink("Sil", "NovelSil", "Novel", new { id = item.id }, new { @class = "btn btn-outline-danger" })
+                        @Html.ActionLink("Güncelle", "NovelGuncelle", "Novel", new { id = item.id }, new { @class = "btn btn-outline-info" })
+
+                        <h6 class="card-subtitle" style="padding-top:15px">Yazar: @item.Headliner Çevirmen: @item.translator</h6>
+                    </div>
+
+
+
+
+
+
+
+                </div>
+                <!--CARD-BODY-->
+
+
+
+            </div>
+            <!--CARD-->
+
+            <div style="padding-bottom:7vh"></div>
+
+        </div>
+        <!--COL-3-->
+
+        <div class="col-2"> </div>
+
+    }
+
+
+</div>

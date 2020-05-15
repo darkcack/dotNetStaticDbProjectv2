@@ -1,0 +1,50 @@
+﻿<link rel="stylesheet" href="~/Content/navbar.css" />
+@using WebVizev2.Models;
+@{
+
+    List<Category> categories = ViewBag.CategoryList;
+}
+
+<nav id="navbar" class="push better-nav fixed-top">
+    <div class="container">
+        <div class="head">
+            <a href="@Url.Action("Index", "Novel")" class="brand">
+
+                <div class="title">
+                    <h3>UfukNovel</h3>
+                </div>
+            </a>
+        </div>
+        <div class="body">
+            <ul>
+                <li class="home"><a href="@Url.Action("Index", "Novel")"><span style="color:black">Ana Sayfa</span></a></li>
+                <li class="page"><a href="@Url.Action("NovelEkle", "Novel")"> <span style="color:black"> Novel Ekle</span></a></li>
+                <li class="page"><a href="@Url.Action("KategoriEkle", "Kategori")"> <span style="color:black"> Kategori Ekle</span></a></li>
+                <li class="blog  dropdown">
+                    <a href="#"> <span style="color:black">Kategoriler </span> </a>
+                    <span class="selector"></span>
+                    <ul>
+                        <li><a href="@Url.Action("KategoriIndex", "Kategori")"> <span style="color:black">Tüm Kategoriler </span> </a></li>
+                        @foreach (var item in categories)
+                        {
+                            // DİNAMİK KATEGORİLER AÇILIR SEKMESİ
+                            <a class="dropdown-item" href="@Url.Action("KategoriDetay", "Kategori", new { id = item.id })"> <span style="color:black">@item.Name </span> </a>
+
+
+                        }
+
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+        <div class="toggle">
+            <a href="#navbar-slide">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<script src="~/Content/navbar.js"></script>
